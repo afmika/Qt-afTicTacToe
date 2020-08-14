@@ -96,8 +96,9 @@ void MainWindow::onViewClick(int x, int y) {
     if ( board[by][bx] == 0 && TicTacToe::gameEnd(board) == TicTacToe::_GAME_NOT_ENDED ) {
         board[by][bx] = -1;
         pair<int, int> pos = TicTacToe::play(board);
-        board[pos.first][pos.second] = 1;  
-        
+        if (board[pos.first][pos.second] == 0 ) {
+            board[pos.first][pos.second] = 1;              
+        }
         int game_state = TicTacToe::gameEnd(board);
         if ( game_state != TicTacToe::_GAME_NOT_ENDED ) {
             QString text;
